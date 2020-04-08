@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:statscov/models/country.dart';
-import 'package:statscov/screens/loading_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:statscov/components/load_box.dart';
+import 'package:statscov/providers/countries_list_provider.dart';
+import 'package:statscov/providers/location_provider.dart';
 import 'package:statscov/screens/stats_screen.dart';
-import 'package:statscov/services/location.dart';
-import 'package:statscov/services/covid_api.dart';
 
 class StatsScreenLoader extends StatelessWidget {
-  Future<List<dynamic>> doPreTasks() async {
-    Placemark placemark = await LocationService().getPlacemark();
-
-    List<Country> countriesList = await CovidApiService().getCountriesList();
-
-    return [placemark, countriesList];
-  }
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<dynamic>>(
-      future: doPreTasks(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done &&
-            snapshot.data != null) {
-          return StatsScreen(snapshot.data[0], snapshot.data[1]);
+    return Consumer2<LocationProvider, CountriesListProvider>(
+      builder: (_, locationProduct, countriesListProduct, __) {
+        if (countriesListProduct.state == CountriesListProviderState.ready) {
+          if (locationProduct.state == LocationProviderState.ready) {
+            return StatsScreen(
+                locationProduct.location, countriesListProduct.countriesList);
+          } else if (locationProduct.state == LocationProviderState.loading) {
+            return LoadBox();
+          } else {
+            return StatsScreen(null, countriesListProduct.countriesList);
+          }
+        } else if (countriesListProduct.state ==
+            CountriesListProviderState.loading) {
+          return LoadBox();
         } else {
-          return LoadingScreen();
+          return Text(countriesListProduct.exception.toString());
         }
       },
     );

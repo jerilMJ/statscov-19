@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:statscov/models/country.dart';
 import 'package:statscov/models/report.dart';
-import 'package:statscov/services/http_response_handler.dart';
+import 'package:statscov/services/http_response_handler_service.dart';
 
 class CovidApiService {
   final _apiAutority = 'covid-api.com';
@@ -21,13 +21,15 @@ class CovidApiService {
     final uri = Uri.https(_apiAutority, _regionsUnencodedPath);
     final response = await http.get(uri);
 
-    _httpResponseHandlerService.handleResponse(response, uri);
+    try {
+      _httpResponseHandlerService.handleResponse(response, uri);
+    } catch (e) {
+      throw e;
+    }
 
-    final respBody = json.decode(response.body);
+    final data = json.decode(response.body)['data'];
+    final List<Country> countries = [];
 
-    List<Country> countries;
-    final data = respBody['data'];
-    countries = [];
     data.forEach((item) {
       countries.add(Country(item['name'], item['iso']));
     });
@@ -40,12 +42,17 @@ class CovidApiService {
   Future<Report> getReportForIsoCode(String iso) async {
     iso = CountryCode.parse(iso).alpha3;
     var date = DateTime.now();
+    var data;
 
-    var data = await getDataForDate(date, iso);
+    try {
+      data = await _getDataForDate(date, iso);
 
-    if (data.length == 0) {
-      date = date.subtract(Duration(days: 1));
-      data = await getDataForDate(date, iso);
+      if (data.length == 0) {
+        date = date.subtract(Duration(days: 1));
+        data = await _getDataForDate(date, iso);
+      }
+    } catch (e) {
+      throw e;
     }
 
     Report report =
@@ -54,17 +61,24 @@ class CovidApiService {
     return report;
   }
 
-  Future<dynamic> getDataForDate(DateTime date, String iso) async {
+  Future<List<Map>> _getDataForDate(DateTime date, String iso) async {
     iso = CountryCode.parse(iso).alpha3;
     final formattedDate = _dateFormatter.format(date);
 
     final uri = Uri.https(_apiAutority, _reportsUnencodedPath,
         {'date': formattedDate, 'iso': iso});
-    final response = await http.get(uri).catchError((error) => null);
 
-    _httpResponseHandlerService.handleResponse(response, uri);
+    final response = await http.get(uri);
 
-    var data = json.decode(response.body)['data'];
+    try {
+      _httpResponseHandlerService.handleResponse(response, uri);
+    } catch (e) {
+      throw e;
+    }
+
+    final data =
+        (json.decode(response.body)['data'] as List<dynamic>).cast<Map>();
+
     return data;
   }
 }

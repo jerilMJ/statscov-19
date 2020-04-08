@@ -7,13 +7,13 @@ import 'package:statscov/components/counters.dart';
 import 'package:statscov/components/load_box.dart';
 import 'package:statscov/models/country.dart';
 import 'package:statscov/models/report.dart';
-import 'package:statscov/services/countries_api.dart';
-import 'package:statscov/services/covid_api.dart';
 // import 'package:searchable_dropdown/searchable_dropdown.dart';
 import 'package:country_code/country_code.dart';
 import 'package:statscov/components/bar_charts.dart';
 import 'package:statscov/components/countries_field.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:statscov/services/countries_api_service.dart';
+import 'package:statscov/services/covid_api_service.dart';
 import 'package:statscov/utils/exceptions.dart';
 
 class StatsScreen extends StatefulWidget {
@@ -172,11 +172,15 @@ class _StatsScreenState extends State<StatsScreen>
         .getReportForIsoCode(selectedValue)
         .catchError((error) => null);
 
-    countryPopulation = await countriesApiService
-        .getCountryPopulationByIso(selectedValue)
+    final a = await countriesApiService
+        .getDetailsForIso(selectedValue)
         .catchError((error) => null);
 
+    countryPopulation = a.population;
+
     if (report == null || countryPopulation == null) {
+      print(report);
+      print(countryPopulation);
       throw DataFetchException(
           'Looks like I was unable to fetch some data. Please try again');
     }
