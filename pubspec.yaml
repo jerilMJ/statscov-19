@@ -1,0 +1,41 @@
+name: statscov
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.3.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  animated_text_kit: ^2.0.0
+  geolocator: ^5.3.1
+  http: ^0.12.0+4
+  country_code: ^0.1.1
+  intl: ^0.16.1
+  fl_chart: ^0.8.7
+  carousel_slider: ^1.4.1
+  rxdart: ^0.23.1
+
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: CustomIcons
+      fonts:
+        - asset: assets/icons/virus.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf
+
+  assets:
+    - assets/images/confirmed_bg.png
+    - assets/images/recovered_bg.png
+    - assets/images/deaths_bg.png
