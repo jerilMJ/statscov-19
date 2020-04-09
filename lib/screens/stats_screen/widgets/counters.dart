@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:statscov/components/animated_counter.dart';
-import 'package:statscov/components/ui_card.dart';
+import 'package:statscov/shared/animated_counter.dart';
+import 'package:statscov/shared/ui_card.dart';
 import 'package:statscov/models/report.dart';
 import 'package:statscov/utils/constants.dart';
 

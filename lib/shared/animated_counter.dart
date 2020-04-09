@@ -18,9 +18,12 @@ class AnimatedCounter extends StatefulWidget {
 }
 
 class _AnimatedCounterState extends State<AnimatedCounter>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   AnimationController _counterController;
   Animation<dynamic> _counterAnimation;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -54,7 +57,7 @@ class _AnimatedCounterState extends State<AnimatedCounter>
 
   @override
   void dispose() {
-    super.dispose();
     _counterController.dispose();
+    super.dispose();
   }
 }

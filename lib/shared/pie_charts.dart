@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:statscov/components/ui_card.dart';
+import 'package:statscov/shared/ui_card.dart';
 import 'package:statscov/models/report.dart';
 
 import 'indicator.dart';

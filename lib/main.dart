@@ -4,7 +4,7 @@ import 'package:statscov/providers/countries_list_provider.dart';
 import 'package:statscov/providers/location_provider.dart';
 import 'package:statscov/utils/constants.dart';
 
-import 'screens/stats_screen_loader.dart';
+import 'screens/stats_screen/stats_screen_loader.dart';
 
 void main() => runApp(AppConstants(child: MyApp()));
 

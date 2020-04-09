@@ -16,6 +16,9 @@ class AppConstants extends InheritedWidget {
   final Color kSecondaryTwo = Color(0xfff50057);
   final Color kSecondaryThree = Color(0xfff73378);
 
+  final Color kTextPrimary = Colors.grey.shade300;
+  final Color kTextSecondary = Colors.grey;
+
   final Color kTextColor = Colors.white;
 
   @override

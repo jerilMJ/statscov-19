@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/rendering.dart';
-import 'package:statscov/components/ui_card.dart';
+import 'package:statscov/shared/ui_card.dart';
 import 'package:statscov/models/report.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:statscov/utils/constants.dart';

@@ -46,8 +46,9 @@ class CovidApiService {
 
     try {
       data = await _getDataForDate(date, iso);
-
-      if (data.length == 0) {
+      int i = 0;
+      while (data.isEmpty && i <= 10) {
+        i++;
         date = date.subtract(Duration(days: 1));
         data = await _getDataForDate(date, iso);
       }
@@ -57,7 +58,6 @@ class CovidApiService {
 
     Report report =
         Report.fromMapListIsoDate(data, iso, _dateFormatter.format(date));
-
     return report;
   }
 
