@@ -296,14 +296,143 @@ h4 {
 .app-download-section .app-download-android-button,
 .app-download-section .app-download-ios-button {
   padding: 10px;
+  margin: 10px 0;
   width: 100%;
+  height: 100px;
   max-width: 50vw;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   opacity: 0.8;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+}
+
+.app-download-section .fdroid-logo {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  width: 100%;
+  height: 100%;
+  background: url(../images/fdroid.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-shadow: 0 0 10px black;
+  color: var(--text-white-0);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.app-download-section .mega-logo {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  width: 100%;
+  height: 100%;
+  background: url(../images/mega_nz.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-shadow: 0 0 10px black;
+  color: var(--text-white-0);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.app-download-section .xda-logo {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  width: 100%;
+  height: 100%;
+  background: url(../images/xda_labs.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-shadow: 0 0 10px black;
+  color: var(--text-white-0);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.app-download-section #fdroid {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5))), #a5d6a7;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5)), #a5d6a7;
+}
+
+.app-download-section #fdroid .fdroid-logo {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-position: center left;
+}
+
+.app-download-section #fdroid:hover {
+  background: #a5d6a7;
+  text-align: right;
+}
+
+.app-download-section #fdroid:hover .fdroid-logo {
+  background: url(../images/fdroid.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: transparent;
+  text-shadow: none;
+}
+
+.app-download-section #mega {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5))), #ef9a9a;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5)), #ef9a9a;
+}
+
+.app-download-section #mega .mega-logo {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-position: center left;
+}
+
+.app-download-section #mega:hover {
+  background: #ef9a9a;
+  text-align: right;
+}
+
+.app-download-section #mega:hover .mega-logo {
+  background: url(../images/mega_nz.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: transparent;
+  text-shadow: none;
+}
+
+.app-download-section #xda {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5))), #ffcc80;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5)), #ffcc80;
+}
+
+.app-download-section #xda .xda-logo {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-position: center left;
+}
+
+.app-download-section #xda:hover {
+  background: #ffcc80;
+  text-align: right;
+}
+
+.app-download-section #xda:hover .xda-logo {
+  background: url(../images/xda_labs.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: transparent;
+  text-shadow: none;
 }
 
 .app-download-section .app-download-android-button {

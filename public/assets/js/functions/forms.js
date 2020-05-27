@@ -11,30 +11,52 @@ function setupAndroidDownloadForm() {
     "android-download-form"
   )[0];
 
-  androidDownloadForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let url;
+  const fdroidBtn = document.getElementById("fdroid");
+  const megaBtn = document.getElementById("mega");
+  const xdaBtn = document.getElementById("xda");
 
-    switch (androidDownloadForm["cpu-architecture"].value) {
-      case "arm-32-bit":
-        url =
-          "https://labs-dl-signed.xda-cdn.com/apks/86498472-1095-471c-8cb1-dd35cc7590dd.apk?Signature=AS4gYxliUx-xGmlmMMFmWkh0bezEijt-P-m0kgmLook5tp38EdTbg7F0rU-ZLfmTF-5HP0TT5kfbCk-Fi6zVYk9Xif3qAE8CEcI88jD95pSuztHimUYuw557QJgFB3TMhDhRL22BzFfap2ggYXglQgJHHBivft1Sy0kPkOlCu28b7-Hm8HAtYL-~guJhyRZVDUQgLnzavZX42JDbYt7-3412SFy~~7t-Ptzp7~SKn6Kl-1SEJhPspxNptd7n4Cp~1JoZptzbhHDwoIriiLwXikaqc5bS41N1qFGS57q3AoxyGQRUfkOLAstoLKZ1CiEhpDt6JntFUEnXOJ6Ny2KCpA__&Expires=1590556856&Key-Pair-Id=APKAJRXMMHY3RDXVM6BA";
-        break;
-      case "arm-64-bit":
-        url =
-          "https://labs-dl-signed.xda-cdn.com/apks/4062a73b-a60e-4ae3-a351-4b55e7e4bca0.apk?Signature=gZKeD~Ll6hQZSrpWi4T0v9kaxHXygSVKfJ9bMyrhwc~ooW6z0wlpppgCsb4IBr5VMQEcF0q2uOgIEU6AKICRxtMcLMPE3Xpx~PKUAIv5zt111zpiIXOWFbGkEGRE22scatwlB6KbUbSVvHWulFN1jzXy5JdRlgXpfv-uVmpNn9~wjnLRulmcipNxXWsokpU~LlIFiWjSvYZeoAEkZVx8prECU76yL1c-lRmyIxGboifNCixUt4q~ifKbohwVerQr6Md4i8gEgQ3GtRzV9Yh6lDGjKo35pqa9yHuMA6BT3wWKyetTr2kY0ktU2ZhDzhNlnud~EXx~TMcLvy52V5QJmw__&Expires=1590557063&Key-Pair-Id=APKAJRXMMHY3RDXVM6BA";
-        break;
-      case "x86-64-bit":
-        url =
-          "https://labs-dl-signed.xda-cdn.com/apks/626ba614-f5f1-4f97-960c-e453be1d83b6.apk?Signature=DtYAGdcZcjolvr-L1420mCoFZXlvblZX60pJuku729pgajkgxnwHlv3zO6j8koQZZHx19yGZZVY058J6VA5O9V1Mhtiq6H2MEvQa0MngqWZc3DBa5SITqPsMX4S~BNKgwLj52iCnUea8hFjPmFpOUASKJwBULW2kyFk79EtYO~zsj-OHuSJ7vNZNBqvyfnKtnkr13fc-y2EBNrEsMjgLPxmGP6ZZuQIecMsXjj96PdzoFKNgoXcIVsvTrceafK6eQI27Nf9v3mBRwlcJxAzAd5y84FodVYuV~XRaJp~I4lghyGZK9k5NH78Lm42H1GD3fDLA6COVQbU8WJBY8B1H2g__&Expires=1590557290&Key-Pair-Id=APKAJRXMMHY3RDXVM6BA";
-        break;
-      case "idk":
-        url =
-          "https://labs-dl-signed.xda-cdn.com/apks/17d2f777-7a39-4024-ad80-a0e5a8e3a972.apk?Signature=LfogW4JuQ7qSS4G8DHM9ugjQqmh5XINBtCdHosltnJabGwL4tWF5T-4NHq6jMOGXl8DfF8YWbzQNZkJ4IemxtNgTjLyvNKTLv4UdEmy0qifx7UBszFouVBEpT4pZkbMQpQAN7LHPpBFO8N3r-qtFhVBnqaqUIl6l-J824LElp4MexilBwTblxQeeKD68X4OPgXbPDUXmRTeypoQ8F9OYSAIX4ZrM1Hwbl2nbJcyL~t9KM4gGw5HK8tOusQja4B5ORkvl~Y1fCOwftvFugnjR37Kga7r52BLOwTj-Ez1dLkKHEi5cPM-tQ0ECC3Ch5QrT~iqFeqU2E~N0ndqqu~5Dmg__&Expires=1590556170&Key-Pair-Id=APKAJRXMMHY3RDXVM6BA";
-        break;
-    }
+  [fdroidBtn, megaBtn, xdaBtn].forEach((btn, index) => {
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      let url;
 
-    window.open(url, "_blank");
+      switch (androidDownloadForm["cpu-architecture"].value) {
+        case "arm-32-bit":
+          url =
+            index === 0
+              ? "a"
+              : index === 1
+              ? "https://mega.nz/folder/3PBmBYLB#FcpJAy2qRJ64-Ouu8uOzbw/file/KaRRQCJR"
+              : "https://labs.xda-developers.com/store/app/io.github.jerilmj.statscov_19";
+          break;
+        case "arm-64-bit":
+          url =
+            index === 0
+              ? "a"
+              : index === 1
+              ? "https://mega.nz/folder/3PBmBYLB#FcpJAy2qRJ64-Ouu8uOzbw/file/jfJDwIaA"
+              : "https://labs.xda-developers.com/store/app/io.github.jerilmj.statscov_19";
+          break;
+        case "x86-64-bit":
+          url =
+            index === 0
+              ? "a"
+              : index === 1
+              ? "https://mega.nz/folder/3PBmBYLB#FcpJAy2qRJ64-Ouu8uOzbw/file/beQjjKYJ"
+              : "https://labs.xda-developers.com/store/app/io.github.jerilmj.statscov_19";
+          break;
+        case "idk":
+          url =
+            index === 0
+              ? "a"
+              : index === 1
+              ? "https://mega.nz/folder/3PBmBYLB#FcpJAy2qRJ64-Ouu8uOzbw/file/beJz2CzZ"
+              : "https://labs.xda-developers.com/store/app/io.github.jerilmj.statscov_19";
+          break;
+      }
+
+      window.open(url, "_blank");
+    });
   });
 }
 

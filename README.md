@@ -4,15 +4,21 @@
 
 ![License Badge] ![App Page Badge]
 
-StatsCOV-19 is a COVID-19 data visualization app that provides the data collected by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) (https://github.com/CSSEGISandData/COVID-19) in a user-friendly and easy-to-view manner. Features include:
+StatsCOV-19 is a COVID-19 data visualization app that provides the data collected by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) [(Source)](https://github.com/CSSEGISandData/COVID-19) in a user-friendly and easy-to-view manner. Features include:
 
-• View reports of any country individually
-• Compare multiple reports together
-• View the latest global report
-• See how the pandemic spread on the map
-• View status offline once downloaded (from cached data)
-• Pin the reports you want to access them quicker
-• No special permissions required
+• View reports of any country individually<br/>
+• Compare multiple reports together<br/>
+• View the latest global report<br/>
+• See how the pandemic spread on the map<br/>
+• View status offline once downloaded (from cached data)<br/>
+• Pin the reports you want to access them quicker<br/>
+• No special permissions required<br/>
+
+### Disclaimer
+
+The data shown in this app is collected by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University which falls under public non-profit use for health, research and academic purposes. As the data is contrived from publicly available sources which may be conflicting at times, both JHU and the developer of this app
+disclaims any and all representations and warranties with respect to the data, including accuracy, fitness for use, reliability, completeness, and non-infringement of third party rights.
+[All Sources][sources]
 
 ### Download
 
@@ -22,7 +28,6 @@ App downloads can be found at the [App Page] or at [XDA Labs][xda page] or you c
 
 Open an issue here or go to the app page and fill out the form there.
 [App Page][app page]
-[All Sources][sources]
 
 ### License
 

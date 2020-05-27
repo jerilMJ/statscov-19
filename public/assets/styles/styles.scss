@@ -250,13 +250,128 @@ h4 {
   .app-download-android-button,
   .app-download-ios-button {
     padding: 10px;
+    margin: 10px 0;
     width: 100%;
+    height: 100px;
     max-width: 50vw;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     opacity: 0.8;
-    transition: all 0.2s ease-in;
+  }
+
+  .fdroid-logo {
+    justify-content: flex-end;
+    transition: all 0.5s linear;
+    width: 100%;
+    height: 100%;
+    background: url(../images/fdroid.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    color: var(--text-white-0);
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .mega-logo {
+    justify-content: flex-end;
+    transition: all 0.5s linear;
+    width: 100%;
+    height: 100%;
+    background: url(../images/mega_nz.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    color: var(--text-white-0);
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .xda-logo {
+    justify-content: flex-end;
+    transition: all 0.5s linear;
+    width: 100%;
+    height: 100%;
+    background: url(../images/xda_labs.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    color: var(--text-white-0);
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  #fdroid {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5)), #a5d6a7;
+
+    .fdroid-logo {
+      transition: all 0.5s;
+      background-position: center left;
+    }
+  }
+
+  #fdroid:hover {
+    background: #a5d6a7;
+    text-align: right;
+
+    .fdroid-logo {
+      background: url(../images/fdroid.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: transparent;
+      text-shadow: none;
+    }
+  }
+
+  #mega {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5)), #ef9a9a;
+
+    .mega-logo {
+      transition: all 0.5s;
+      background-position: center left;
+    }
+  }
+
+  #mega:hover {
+    background: #ef9a9a;
+    text-align: right;
+
+    .mega-logo {
+      background: url(../images/mega_nz.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: transparent;
+      text-shadow: none;
+    }
+  }
+
+  #xda {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5)), #ffcc80;
+
+    .xda-logo {
+      transition: all 0.5s;
+      background-position: center left;
+    }
+  }
+
+  #xda:hover {
+    background: #ffcc80;
+    text-align: right;
+
+    .xda-logo {
+      background: url(../images/xda_labs.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: transparent;
+      text-shadow: none;
+    }
   }
 
   .app-download-android-button {
