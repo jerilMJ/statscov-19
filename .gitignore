@@ -43,4 +43,6 @@ lib/generated_plugin_registrant.dart
 /firebase.json
 /firestore.indexes.json
 /unoptimized_images
+/app/.vscode
+/app/build
 
