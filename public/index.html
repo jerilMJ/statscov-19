@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StatsCOV-19</title>
+
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <link rel="stylesheet" href="./assets/styles/carousel.css" />
+    <link rel="stylesheet" href="./assets/styles/pull_tab.css" />
+    <link rel="stylesheet" href="./assets/styles/folder_view.css" />
+    <link rel="stylesheet" href="./assets/styles/loading.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="./assets/js/index.js"></script>
+
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+      async
+      defer
+    ></script>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script id="data" type="application/json" src="../app.json"></script>
+  </head>
+  <body>
+    <div id="load" class="center-content">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="no-horizontal-scroll" id="main-page" style="display: none;">
+      <nav class="nav">
+        <div class="center-content logo">
+          <img src="./assets/images/logo.svg" alt="App Logo" />
+        </div>
+        <div class="typewriter center-content">
+          <div class="typewriter-content-wrapper">
+            <div class="typewriter-content"></div>
+          </div>
+          <span class="typewriter-underscore">_</span>
+        </div>
+      </nav>
+
+      <div class="full-screen-overlay"></div>
+
+      <header class="header">
+        <div class="carousel">
+          <div class="carousel-head">
+            <div class="wrapper center-content-horizontal">
+              <div class="logo"></div>
+            </div>
+            <div
+              class="wrapper center-content-horizontal"
+              style="visibility: hidden;"
+            >
+              <div class="ss1"></div>
+            </div>
+            <div class="wrapper center-content-horizontal">
+              <div class="ss2"></div>
+            </div>
+            <div class="wrapper center-content-horizontal">
+              <div class="ss3"></div>
+            </div>
+            <div class="wrapper center-content-horizontal">
+              <div class="ss4"></div>
+            </div>
+          </div>
+          <div class="carousel-indicators"></div>
+          <button class="carousel-left-nav-button carousel-nav-button">
+            <img
+              src="./assets/images/arrow_left.svg"
+              alt="Carousel Left Nav Button"
+            />
+          </button>
+          <button class="carousel-right-nav-button carousel-nav-button">
+            <img
+              src="./assets/images/arrow_right.svg"
+              alt="Carousel Right Nav Button"
+            />
+          </button>
+        </div>
+      </header>
+
+      <main class="main">
+        <h1 class="app-title">
+          StatsCOV-19
+          <span class="version"></span>
+        </h1>
+        <h3 class="app-subtitle">
+          The progress in flattening the curve, visualized
+        </h3>
+        <br />
+        <p class="app-description">
+          StatsCOV-19 is an app available for Android that brings to you the
+          data provided by John Hopkins University (source:
+          <a
+            class="data-source-link"
+            href="https://github.com/CSSEGISandData/COVID-19"
+            >CSSEGISandData/COVID-19</a
+          >) in easily viewable forms with well-known visualization techniques
+          and charts. Features include:
+        </p>
+        <br />
+        <ul class="app-features-list">
+          <li>View reports of any country individually</li>
+          <li>Compare multiple reports together</li>
+          <li>View the latest global report</li>
+          <li>See how the pandemic spread on the map</li>
+          <li>View status offline once downloaded (from cached data)</li>
+          <li>Pin reports to access them quicker</li>
+          <li>No permissions required</li>
+        </ul>
+        <section class="app-download-section">
+          <h3>Download - Android</h3>
+          <hr />
+          <div class="app-download">
+            <div class="android-download">
+              <form class="android-download-form cpu-arch-selection">
+                <label for="cpu-architecture"
+                  >Select your phone's CPU Architecture</label
+                >
+                <select name="cpu-architecture" id="cpu-architecture">
+                  <option value="arm-32-bit">ARM 32-bit</option>
+                  <option value="arm-64-bit">ARM 64-bit</option>
+                  <option value="x86-64-bit">x86 64-bit</option>
+                  <option value="idk">I don't know</option>
+                </select>
+
+                <div class="app-download-android">
+                  <button type="submit" class="app-download-android-button">
+                    <img
+                      class="logo-small"
+                      src="./assets/images/android_logo.svg"
+                      alt="Android Logo"
+                    />
+                  </button>
+                </div>
+              </form>
+
+              <aside class="about-android-download">
+                If you don't know what your cpu architecture is or don't care
+                about it, you can download the bundled apk by selecting the 'I
+                don't know' option. Bundled apks are usually twice or more in
+                size than the standalone ones. So, If you are concerned about
+                the size of the app, it is better to
+                <a
+                  href="https://www.howtogeek.com/339665/how-to-find-your-android-devices-info-for-correct-apk-downloads/"
+                  target="_blank"
+                  class="ext-link"
+                  >find out what the architecture is.</a
+                >
+              </aside>
+            </div>
+            <!-- <div class="app-download-ios">
+            <h4>iOS</h4>
+            <button class="app-download-ios-button">
+              <img
+                class="logo-small"
+                src="./assets/images/ios_logo.svg"
+                alt="iOS Logo"
+              />
+            </button>
+          </div> -->
+          </div>
+          <br />
+          <p>
+            This app is available for download as .apk file (for Android). Make
+            sure you have turned on thrid-party install for it to work. I won't
+            be able to release this app on the Play Store due to the
+            restrictions placed by Google. Therefore, you will only find apps
+            released officialy by your government/ruling agency there.
+          </p>
+        </section>
+
+        <section class="feedback-section pull-tab">
+          <div class="pull-tab-overlay"></div>
+
+          <div class="folder-view center-content-horizontal">
+            <div
+              class="bug-report-tab center-content folder-view-tab folder-view-inactive-tab"
+            >
+              <div class="icon"></div>
+            </div>
+
+            <div
+              class="feedback-tab center-content folder-view-tab folder-view-inactive-tab"
+            >
+              <div class="icon"></div>
+            </div>
+
+            <div class="vertical-scroll-wrapper folder-view-contents">
+              <form
+                action=""
+                class="bug-report-form folder-view-content folder-view-inactive-content content-img-row"
+                id="bug-report-form"
+              >
+                <div class="content">
+                  <h3>Found bugs? Report them here</h3>
+
+                  <div class="form-group">
+                    <label for="title"
+                      >Title
+                      <span class="red-text">*</span>
+                    </label>
+                    <input type="text" name="title" id="title" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="code">Error Code</label>
+                    <input type="text" name="code" id="code" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="description"
+                      >Description
+                      <span class="red-text">*</span>
+                      <p class="thin-text">
+                        (Please be descriptive and avoid keeping any details
+                        vague to help me pinpoint the issue asap)
+                      </p>
+                    </label>
+                    <textarea
+                      name="description"
+                      id="description"
+                      cols="20"
+                      rows="5"
+                      maxlength="200"
+                      minlength="50"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="center-content-vertical">
+                    <div
+                      class="g-recaptcha"
+                      id="bug-report-recaptcha"
+                      data-sitekey="6LduCvwUAAAAAD8n65Y7HdFNx1flWLzMLr4XkXzF"
+                      data-callback="bugReportRecaptchaSuccess"
+                      data-expired-callback="disableBugReportSubmit"
+                      data-error-callback="disableBugReportSubmit"
+                    ></div>
+                  </div>
+
+                  <button
+                    id="bug-report-button"
+                    class="captcha-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                  <div class="validation-feedback"></div>
+                </div>
+
+                <div class="img"></div>
+              </form>
+
+              <form
+                action=""
+                class="feedback-form folder-view-content folder-view-inactive-content content-img-row"
+                id="feedback-form"
+              >
+                <div class="content">
+                  <h3>Let me know what you think about the app</h3>
+
+                  <div class="form-group">
+                    <label for="feedback"
+                      >Feedback
+                      <span class="red-text">*</span>
+                    </label>
+                    <textarea
+                      name="feedback"
+                      id="feedback"
+                      cols="20"
+                      rows="5"
+                      maxlength="200"
+                      minlength="20"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="center-content-vertical">
+                    <div
+                      class="g-recaptcha"
+                      id="feedback-recaptcha"
+                      data-sitekey="6LduCvwUAAAAAD8n65Y7HdFNx1flWLzMLr4XkXzF"
+                      data-callback="feedbackRecaptchaSuccess"
+                      data-expired-callback="disableFeedbackSubmit"
+                      data-error-callback="disableFeedbackSubmit"
+                    ></div>
+                  </div>
+
+                  <button
+                    id="feedback-button"
+                    class="g-recaptcha captcha-button"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+
+                  <div class="validation-feedback"></div>
+                </div>
+
+                <div class="img"></div>
+              </form>
+            </div>
+          </div>
+
+          <div class="pull-tab-handle pull-tab-handle-hidden">
+            <div style="margin: 5px;">
+              <div class="pull-tab-handle-icon"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <section class="about">
+          <h3>About this app</h3>
+          <hr />
+          <p>
+            This app was made using the Flutter framework which allows you to
+            develop & build Android & iOS apps and even webapps(under
+            development). I made this mostly to gain a deeper understanding of
+            the framework and try out some plugins. This app is only for
+            statistics and not anything else. If you are looking for help
+            regarding the pandemic, look for information ONLY from the official
+            sources.
+          </p>
+        </section>
+        <div class="footer-stuff">
+          <a
+            href="https://jerilmj.github.io/statscov-19/app"
+            target="_blank"
+            class="card"
+          >
+            <p class="dark-bg card-para center-content-vertical">
+              View my open-source project on Github
+            </p>
+            <div class="card-img">
+              <img
+                class="logo-small"
+                src="./assets/images/github_logo.svg"
+                alt="Github Logo"
+              />
+            </div>
+          </a>
+
+          <a href="https://flutter.dev/" target="_blank" class="card">
+            <p class="dark-bg card-para center-content-vertical">
+              Powered by
+            </p>
+            <div class="card-img">
+              <img
+                class="logo-small"
+                src="./assets/images/flutter_logo.svg"
+                alt="Flutter Logo"
+              />
+            </div>
+          </a>
+        </div>
+        <div class="attribution">
+          Icons made by
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+            >Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
+      </footer>
+
+      <script>
+        var onloadCallback = function () {
+          document.getElementById("feedback-button").disabled = "true";
+          document.getElementById("bug-report-button").disabled = "true";
+
+          grecaptcha.render("feedback-recaptcha", {
+            sitekey: "6LduCvwUAAAAAD8n65Y7HdFNx1flWLzMLr4XkXzF",
+          });
+
+          grecaptcha.render("bug-report-recaptcha", {
+            sitekey: "6LduCvwUAAAAAD8n65Y7HdFNx1flWLzMLr4XkXzF",
+          });
+        };
+      </script>
+    </div>
+  </body>
+</html>
