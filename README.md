@@ -10,6 +10,10 @@ StatsCOV-19 is a COVID-19 data visualization app that provides the data collecte
 • Pin the reports you want to access them quicker
 • No special permissions required
 
-App Page: https://statscov-19-cd31f.firebaseapp.com/
+#### Bug Reports & Feedback
+
+Open an issue here or go to the app page and fill out the form there.
+
+[App Page](https://statscov-19-cd31f.firebaseapp.com/)
 
 [All Sources](https://github.com/jerilMJ/statscov-19/blob/master/SOURCES.md)
