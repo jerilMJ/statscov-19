@@ -35,3 +35,11 @@ lib/generated_plugin_registrant.dart
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+# Externally added
+apks
+firestore.rules
+firebase.json
+firestore.indexes.json
+unoptimized_images
+

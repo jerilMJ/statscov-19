@@ -1,0 +1,50 @@
+.folder-view {
+  height: 100%;
+  width: 100%;
+}
+
+.folder-view-contents {
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-x: hidden;
+}
+
+.folder-view-inactive-content {
+  z-index: 3;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+  display: none;
+}
+
+.folder-view-active-content {
+  z-index: 5;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+
+.folder-view-active-tab {
+  z-index: 3;
+  background: var(--light-cement);
+  -webkit-transition: background 0 ease-in-out;
+  transition: background 0 ease-in-out;
+}
+
+.folder-view-inactive-tab {
+  z-index: 0;
+  background: var(--cement);
+  -webkit-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+}
+/*# sourceMappingURL=folder_view.css.map */

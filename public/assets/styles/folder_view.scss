@@ -1,0 +1,38 @@
+.folder-view {
+  height: 100%;
+  width: 100%;
+}
+
+.folder-view-contents {
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.folder-view-inactive-content {
+  z-index: 3;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+  display: none;
+}
+
+.folder-view-active-content {
+  z-index: 5;
+  transition: all 0.5s ease-in;
+}
+
+.folder-view-active-tab {
+  z-index: 3;
+  background: var(--light-cement);
+  transition: background 0 ease-in-out;
+}
+
+.folder-view-inactive-tab {
+  z-index: 0;
+  background: var(--cement);
+  transition: background 0.5s ease-in-out;
+}

@@ -1,0 +1,78 @@
+name: statscov
+description: An app to visualize COVID-19 stats without much hassle.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.3.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  async: ^2.4.0
+  rxdart: ^0.23.1
+  quiver: ^2.0.5
+  intl: ^0.16.1
+
+  http: ^0.12.0+4
+  provider: ^4.0.4
+
+  path_provider: ^1.6.7
+  shared_preferences: ^0.5.7
+  hive: ^1.4.1+1
+  hive_flutter: ^0.3.0+2
+
+  connectivity: ^0.4.8+2
+  country_code: ^0.1.1
+
+  flutter_map: ^0.9.0
+  flutter_map_marker_popup: ^0.1.4
+
+  fl_chart: ^0.8.7
+  charts_flutter: ^0.9.0
+  carousel_slider: ^1.4.1
+
+  flutter_icons: ^1.1.0
+  flare_flutter: ^2.0.3
+
+  implicitly_animated_reorderable_list: ^0.2.1
+  google_fonts: ^1.1.0
+  url_launcher: ^5.4.7
+  tutorial_coach_mark: ^0.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+#   # hive_generator: ^0.7.0+2
+#   # build_runner: ^1.9.0
+#   # flutter_launcher_icons: ^0.7.5
+
+# flutter_icons:
+#   android: true
+#   image_path: "assets/icons/logo.png"
+#   adaptive_icon_background: "assets/icons/background.png"
+#   adaptive_icon_foreground: "assets/icons/foreground.png"
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: CustomIcons
+      fonts:
+        - asset: assets/icons/virus.ttf
+
+  assets:
+    - assets/images/confirmed_bg.png
+    - assets/images/recovered_bg.png
+    - assets/images/deaths_bg.png
+    - assets/images/landing_img.png
+    - assets/images/individual_reports.png
+    - assets/images/compare_reports.png
+    - assets/images/worldwide_report.png
+    - assets/images/pandemic_map.png
+    - assets/images/error_sprite.png
+    - assets/animations/virus_spread(0).flr
+    - assets/animations/virus_spread(1).flr
+    - assets/animations/virus_spread(2).flr
+    - assets/animations/virus_spread(3).flr

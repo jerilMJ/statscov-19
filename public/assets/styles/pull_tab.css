@@ -1,0 +1,76 @@
+.pull-tab {
+  position: fixed;
+  left: 20vw;
+  top: 15vh;
+  width: 80vw;
+  height: 70vh;
+  border-top-left-radius: 5px;
+  z-index: 100;
+  -webkit-transform: translateX(80vw);
+          transform: translateX(80vw);
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  direction: rtl;
+}
+
+.pull-tab .pull-tab-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: var(--light-cement);
+  position: absolute;
+  z-index: 4;
+}
+
+.pull-tab .pull-tab-handle {
+  position: absolute;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  z-index: 2;
+  bottom: 0;
+  left: -10vw;
+  width: 10vw;
+  height: 70px;
+  background: var(--purp);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.5;
+}
+
+.pull-tab .pull-tab-handle .pull-tab-handle-icon {
+  width: 8vw;
+  height: 60px;
+  background: url("../images/write.svg") no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.pull-tab .pull-tab-handle:hover {
+  opacity: 1;
+}
+
+.pull-tab .pull-tab-handle-hidden {
+  -webkit-transform: translateX(10vw);
+          transform: translateX(10vw);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.pull-tab .pull-tab-handle-visible {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.pull-tab-shadow {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+/*# sourceMappingURL=pull_tab.css.map */

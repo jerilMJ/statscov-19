@@ -1,0 +1,86 @@
+.carousel {
+  position: relative;
+  top: 2.5%;
+}
+
+.carousel-head {
+  grid-area: head;
+  display: inline-flex;
+  transition: transform 1s ease-in, opacity 0.5s ease-in;
+  opacity: 1;
+
+  .invis {
+    transition: transform 1s ease-in, opacity 0.5s ease-in;
+    opacity: 0;
+  }
+
+  .vis {
+    transition: transform 1s ease-in, opacity 0.5s ease-in;
+    opacity: 1;
+  }
+}
+
+.carousel-indicators {
+  grid-area: indicators;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.carousel-indicator {
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: grey;
+  width: 15px;
+  height: 15px;
+  opacity: 0.5;
+  transition: all 0.5s ease-in;
+}
+
+.carousel-indicator-active {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.carousel-nav-button {
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  opacity: 0;
+  text-align: center;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  transition: all 0.5s ease-in;
+}
+
+.carousel-left-nav-button {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.carousel-right-nav-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.carousel:hover {
+  .carousel-nav-button {
+    opacity: 0.4;
+
+    :hover {
+      opacity: 1;
+    }
+  }
+}
+
+@media only screen and (max-width: 1056px) {
+  .carousel-left-nav-button,
+  .carousel-right-nav-button {
+    display: none;
+  }
+}
