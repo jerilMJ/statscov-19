@@ -81,7 +81,7 @@ android {
     android.applicationVariants.all { variant ->
         if (variant.flavorName == "fdroid") {
             variant.outputs.all { output ->
-                output.outputFileName = "app-fdroid-release.apk"
+                output.outputFileName = "statscov_19-fdroid-release.apk"
             }
         }
     }
