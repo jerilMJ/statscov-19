@@ -44,15 +44,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-#   # hive_generator: ^0.7.0+2
-#   # build_runner: ^1.9.0
-#   # flutter_launcher_icons: ^0.7.5
+    # hive_generator: ^0.7.0+2
+    # build_runner: ^1.9.0
+  flutter_launcher_icons: ^0.7.5
 
-# flutter_icons:
-#   android: true
-#   image_path: "assets/icons/logo.png"
-#   adaptive_icon_background: "assets/icons/background.png"
-#   adaptive_icon_foreground: "assets/icons/foreground.png"
+flutter_icons:
+  android: true
+  image_path: "assets/icons/logo.png"
+  adaptive_icon_background: "assets/icons/background.png"
+  adaptive_icon_foreground: "assets/icons/foreground.png"
 
 flutter:
   uses-material-design: true
