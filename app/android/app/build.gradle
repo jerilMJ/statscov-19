@@ -18,7 +18,7 @@ if (flutterVersionCode == null) {
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
+    flutterVersionName = '1.0.0'
 }
 
 apply plugin: 'com.android.application'
@@ -53,13 +53,6 @@ android {
 
     signingConfigs {
         release {
-            def keystorePropertiesFile = rootProject.file("key.properties")
-            def keystoreProperties = new Properties()
-
-            if (!keystorePropertiesFile.exists()) return;
-
-            keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
             storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
@@ -73,23 +66,6 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-        }
-    }
-
-    flavorDimensions "deploy"
-
-    productFlavors {
-        fdroid {
-            dimension "deploy"
-            signingConfig null
-        }
-    }
-
-    android.applicationVariants.all { variant ->
-        if (variant.flavorName == "fdroid") {
-            variant.outputs.all { output ->
-                output.outputFileName = "statscov_19-fdroid-release.apk"
-            }
         }
     }
 }
