@@ -137,7 +137,7 @@ class AboutScreen extends StatelessWidget {
 
   void launchUrl() async {
     try {
-      const url = 'https://github.com/jerilmj/statscov-19/sources.md';
+      const url = 'https://github.com/jerilMJ/statscov-19/blob/master/SOURCES.md';
 
       if (await canLaunch(url)) {
         await launch(url);
