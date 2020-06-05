@@ -78,7 +78,7 @@ class _ErrorBoxState extends State<ErrorBox> {
                 ),
               ),
               Text(
-                'errorMessage \n\n $errorCode',
+                '$errorMessage \n\n $errorCode',
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30.0),
