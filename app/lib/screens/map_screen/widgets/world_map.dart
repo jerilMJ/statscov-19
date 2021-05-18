@@ -81,16 +81,21 @@ class _WorldMapState extends State<WorldMap> {
             popupController: widget._popupLayerController,
             markers: widget.markers,
             popupBuilder: (_, marker) {
-              var report = latestReportsProvider.reports.reports.values
-                  .firstWhere((report) =>
-                      report.coordinates.lat == marker.point.latitude &&
-                      report.coordinates.long == marker.point.longitude);
+              var report, countryCase;
+              try {
+                report = latestReportsProvider.reports.reports.values
+                    .firstWhere((report) =>
+                        report.coordinates.lat == marker.point.latitude &&
+                        report.coordinates.long == marker.point.longitude);
 
-              var countryCase = minifiedReportProvider.report
-                  .getCases(report.countryName)
-                  .firstWhere((countryCase) =>
-                      DateTime.parse(countryCase.date) ==
-                      mapUtilityProvider.date);
+                countryCase = minifiedReportProvider.report
+                    .getCases(report.countryName)
+                    .firstWhere((countryCase) =>
+                        DateTime.parse(countryCase.date) ==
+                        mapUtilityProvider.date);
+              } catch (e) {
+                countryCase = null;
+              }
 
               return Container(
                 width: 250.0,
@@ -102,23 +107,27 @@ class _WorldMapState extends State<WorldMap> {
                   child: UiCard(
                     color: AppConstants.of(context).kDarkElevations[1],
                     elevation: 10.0,
-                    child: ListView(
-                      children: <Widget>[
-                        Text(
-                          '${countryCase.date}\n'
-                          '${report.countryName}\n',
-                          style: TextStyle(
-                              color: AppConstants.of(context).kTextWhite[1]),
-                        ),
-                        Text(
-                          'Confirmed: ${countryCase.confirmed}\n'
-                          'Recovered: ${countryCase.recovered}\n'
-                          'Deaths: ${countryCase.deaths}',
-                          style: TextStyle(
-                              color: AppConstants.of(context).kTextWhite[1]),
-                        ),
-                      ],
-                    ),
+                    child: countryCase == null
+                        ? const Text("Data not yet known\nCheck later")
+                        : ListView(
+                            children: <Widget>[
+                              Text(
+                                '${countryCase.date}\n'
+                                '${report.countryName}\n',
+                                style: TextStyle(
+                                    color:
+                                        AppConstants.of(context).kTextWhite[1]),
+                              ),
+                              Text(
+                                'Confirmed: ${countryCase.confirmed}\n'
+                                'Recovered: ${countryCase.recovered}\n'
+                                'Deaths: ${countryCase.deaths}',
+                                style: TextStyle(
+                                    color:
+                                        AppConstants.of(context).kTextWhite[1]),
+                              ),
+                            ],
+                          ),
                   ),
                 ),
               );

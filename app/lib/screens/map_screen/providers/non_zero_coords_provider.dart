@@ -8,7 +8,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:statscov/models/api/covid_compiled/report.dart';
-import 'package:statscov/utils/date_utils.dart';
+import 'package:statscov/utils/date_utils.dart' as du;
 
 enum NonZeroCoordsProviderState { loading, error, ready }
 
@@ -23,8 +23,7 @@ class NonZeroCoordsProvider with ChangeNotifier {
     this._totalCountries,
   ) {
     _isAlive = true;
-    _totalDays = allListedCountriesInfectedOn.difference(_firstDate).inDays;
-
+    _totalDays = _lastDate.difference(_firstDate).inDays;
     _setState(NonZeroCoordsProviderState.loading);
 
     createNonZeroReports()
@@ -81,7 +80,7 @@ class NonZeroCoordsProvider with ChangeNotifier {
 
       final subscription = receivePort.listen((date) {
         /// For showing the loading indicator
-        var totalDays = allListedCountriesInfectedOn.difference(date).inDays;
+        var totalDays = _lastDate.difference(date).inDays;
         _prevPercentage = _percentageNotifier.value;
         _percentageNotifier.value = (_totalDays - totalDays) / _totalDays;
       });
@@ -114,7 +113,7 @@ class NonZeroCoordsProvider with ChangeNotifier {
     final SendPort sendPort = args['port'];
 
     DateTime date = firstDate;
-    final dateUtils = DateUtils();
+    final dateUtils = du.DateUtils();
     while (date != lastDate) {
       final dateString = dateUtils.toDateOnlyString(date);
       nzCoords[dateString] = await getNonZeroCoordsForDate({

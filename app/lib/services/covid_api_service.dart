@@ -145,6 +145,7 @@ class CovidApiService {
     }
 
     final parsed = json.decode(response.body);
+    print(parsed);
 
     return Map<String, Report>.from(
         parsed.map((date, report) => MapEntry(date, Report.fromMap(report))));

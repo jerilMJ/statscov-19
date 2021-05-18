@@ -8,7 +8,7 @@ import 'package:statscov/models/api/covid_minified/minified_report.dart';
 import 'package:statscov/models/api/iso_name.dart';
 import 'package:statscov/screens/compare_screen/providers/compare_utility_provider.dart';
 import 'package:statscov/utils/constants.dart';
-import 'package:statscov/utils/date_utils.dart';
+import 'package:statscov/utils/date_utils.dart' as du;
 
 enum GraphMode { confirmed, recovered, deaths }
 
@@ -184,8 +184,11 @@ class _GraphCardState extends State<GraphCard>
     Map<String, List<LinearPlot>> data = await compute(_createData, {
       'report': report,
       'disabled': compProvider.disabled,
-      'mode':
-          mode == GraphMode.confirmed ? 0 : mode == GraphMode.recovered ? 1 : 2,
+      'mode': mode == GraphMode.confirmed
+          ? 0
+          : mode == GraphMode.recovered
+              ? 1
+              : 2,
       'start_date': compProvider.startDate,
       'end_date': compProvider.endDate,
     });
@@ -328,8 +331,8 @@ class _SelectedInfoState extends State<SelectedInfo> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                      DateUtils().prettifyDate(selectedDatum.first.datum.date)),
+                  child: Text(du.DateUtils()
+                      .prettifyDate(selectedDatum.first.datum.date)),
                 ),
                 Expanded(
                   child: Stack(

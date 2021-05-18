@@ -9,7 +9,7 @@ class WorldwideReportService {
   WorldwideReportService();
 
   final _authority = 'covid-api.com';
-  final _unencodedPath = '/api/reports/total/';
+  final _unencodedPath = '/api/reports/total';
   final _httpResponseHandlerService = const HttpResponseHandlerService();
 
   Future<Report> getWorldwideReport() async {

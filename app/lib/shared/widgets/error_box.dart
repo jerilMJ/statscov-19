@@ -29,7 +29,7 @@ class _ErrorBoxState extends State<ErrorBox> {
     switch (widget.error.runtimeType) {
       case SocketException:
         errorMessage =
-            'Unable to fetch data. No network conection! Please connect to the internet and try again.';
+            'Unable to fetch data. No network conection! Please connect to the internet and try again. ';
         errorCode = "001";
         break;
 
@@ -78,7 +78,7 @@ class _ErrorBoxState extends State<ErrorBox> {
                 ),
               ),
               Text(
-                '$errorMessage \n\n $errorCode',
+                '$errorMessage\n\n$errorCode',
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30.0),

@@ -18,7 +18,7 @@ import 'package:statscov/screens/map_screen/widgets/world_map.dart';
 import 'package:statscov/shared/widgets/error_box.dart';
 import 'package:statscov/shared/widgets/load_box.dart';
 import 'package:statscov/utils/constants.dart';
-import 'package:statscov/utils/date_utils.dart';
+import 'package:statscov/utils/date_utils.dart' as du;
 import 'package:statscov/utils/dialog_manager.dart';
 
 class MapScreen extends StatefulWidget {
@@ -33,7 +33,7 @@ class _MapScreenState extends State<MapScreen> {
 
   static final PopupController _popupLayerController = PopupController();
 
-  DateUtils dateUtils = DateUtils();
+  du.DateUtils dateUtils = du.DateUtils();
 
   TutorialProvider _tutorialProvider;
   MapScreenTutorial _mapScreenTutorial;
@@ -151,7 +151,7 @@ class _MapScreenState extends State<MapScreen> {
                       children: <Widget>[
                         const Expanded(
                           child: const LoadBox(
-                            'Filtering and cleaning data.. Just a moment..',
+                            'Filtering and cleaning data.. This will take a while the first time',
                           ),
                         ),
                         ValueListenableBuilder(
